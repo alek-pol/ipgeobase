@@ -1,0 +1,25 @@
+# Ignore bundler config.
+/.bundle/
+
+# Editors
+.idea
+
+# Ignore all logfiles and tempfiles.
+/tmp/
+/log/
+
+# OS
+.DS_STORE
+Thumbs.db
+
+# Emacs backup file
+*~
+*#
+
+# Other
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
