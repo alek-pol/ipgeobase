@@ -35,6 +35,15 @@ class TestIpgeobase < Minitest::Test
     TEST_DATA.each { |name, value| assert_equal(ip_meta.send(name), value) }
   end
 
+  def test_with_request
+    WebMock.disable!
+    ip_meta = Ipgeobase.lookup(@ip)
+
+    assert ip_meta.instance_of?(Ipgeobase::Metadata)
+    TEST_DATA.each { |name, value| assert_equal(ip_meta.send(name), value) }
+    WebMock.enable!
+  end
+
   def test_errors
     TEST_ERRORS.each do |param|
       @stub.to_return(status: param[:to_return])
