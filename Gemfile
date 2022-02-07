@@ -13,5 +13,6 @@ gem 'rake', '~> 13.0'
 gem 'rubocop', '~> 1.25.0'
 
 group :test do
+  gem 'simplecov'
   gem 'webmock'
 end
