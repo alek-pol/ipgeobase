@@ -1,3 +1,5 @@
+[![build](https://github.com/alek-pol/ipgeobase/actions/workflows/build.yml/badge.svg)](https://github.com/alek-pol/ipgeobase/actions/workflows/build.yml)
+
 # Ipgeobase
 
 Get IP-address metadata from [ip-api.com](https://ip-api.com/)
