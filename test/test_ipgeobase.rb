@@ -28,20 +28,13 @@ class TestIpgeobase < Minitest::Test
   end
 
   def test_with_stub
-    @stub.to_return(status: 200, body: File.read('./test/fixtures/8_8_8_8.xml'))
+    @stub.to_return(status: 200, body: file_fixture('8_8_8_8.xml'))
     ip_meta = Ipgeobase.lookup(@ip)
+
+    assert_instance_of(Ipgeobase::Metadata, ip_meta)
 
     assert ip_meta.instance_of?(Ipgeobase::Metadata)
     TEST_DATA.each { |name, value| assert_equal(ip_meta.send(name), value) }
-  end
-
-  def test_with_request
-    WebMock.disable!
-    ip_meta = Ipgeobase.lookup(@ip)
-
-    assert ip_meta.instance_of?(Ipgeobase::Metadata)
-    TEST_DATA.each { |name, value| assert_equal(ip_meta.send(name), value) }
-    WebMock.enable!
   end
 
   def test_errors
